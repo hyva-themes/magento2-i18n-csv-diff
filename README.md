@@ -58,7 +58,7 @@ Be sure to check the automatic translations afterwards!
 
 ## Configuration
   
-No configuration needed.
+To use the Deep`i18n:translate-csv` command, configure your [API key](https://www.deepl.com/pro-api?cta=header-pro-api/) in the system configuration at *Hyva Themes > Localization CLI > Translation > DeepL API Key*. 
 
 ## License
 

@@ -16,6 +16,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function array_diff as diff;
+use function array_search as search;
 
 /**
  * @SuppressWarnings(PHPMD.UnusedFormalParameter)
@@ -24,6 +25,17 @@ use function array_diff as diff;
  */
 class I18nCsvDiffCommand extends Command
 {
+    /**
+     * @var string[]
+     */
+    private $ignoreStrings;
+
+    public function __construct(array $ignoreStrings)
+    {
+        $this->ignoreStrings = $ignoreStrings;
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this->setName('i18n:diff-csv');
@@ -60,9 +72,7 @@ class I18nCsvDiffCommand extends Command
             $row = fgetcsv($fileHandle);
 
             // ignore empty lines and known invalid record
-            if ($row &&
-                $row[0] !== null &&
-                $row[0] !== '")),t.close();var e=t.parentWindow.Object;return t=null,e}(Q):((e=x(') {
+            if ($row && $row[0] !== null && false === search($row[0], $this->ignoreStrings)) {
                 $records[] = $row[0];
             }
         }

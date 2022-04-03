@@ -6,11 +6,20 @@
 
 ![Supported Magento Versions][ico-compatibility]
 
-This module adds a `bin/magento i18n:diff-csv` command.  
+This module adds the `bin/magento i18n:diff-csv` and `i18n:translate-csv` commands.
+
+### i18n:diff-csv
+
 The command takes two CSV files as arguments.    
 It displays all translations that are present in the first CSV file but not in the second.
 
-## Usage:
+### i18n:translate
+
+The command takes a target language 2-letter ISO code as the argument.  
+It reads a Magento localization CSV dictionary from stdin, translates it using the DeepL API, and writes it to stdout.  
+Be sure to check the automatic translations afterwards! 
+
+## Usage Examples:
 
 * Collect all Magento and Hyvä strings:
     ```sh
@@ -23,7 +32,7 @@ It displays all translations that are present in the first CSV file but not in t
     bin/magento i18n:diff-csv hyva-strings.csv magento-strings.csv
     ```
 
-* Find all translations that are missing in a hyva translation file:
+* Find all translations that are missing in a Hyvä translation file:
     ```sh
     bin/magento i18n:diff-csv hyva-strings.csv i18n/de_DE.csv
     ```
@@ -31,7 +40,11 @@ It displays all translations that are present in the first CSV file but not in t
     ```sh
     bin/magento i18n:diff-csv i18n/de_DE.csv hyva-strings.csv
     ```
- 
+* Add new translations to an existing dictionary file.
+    ```sh
+    bin/magento i18n:diff-csv hyva-strings.csv i18n/de_DE.csv | bin/magento i18n:translate-csv DE >> i18n/de_DE.csv
+    ```
+
 ## Installation
   
 1. Install via composer
@@ -47,7 +60,6 @@ It displays all translations that are present in the first CSV file but not in t
   
 No configuration needed.
 
-  
 ## License
 
 The BSD-3-Clause License. Please see [License File](LICENSE.txt) for more information.

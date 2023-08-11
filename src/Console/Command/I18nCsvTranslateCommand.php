@@ -74,6 +74,8 @@ class I18nCsvTranslateCommand extends Command
             }
             fputcsv($outFileHandle, [$row[0], $this->translate($lang, $row[0])]);
         }
+
+        return 0;
     }
 
     private function translate(string $lang, string $phrase): string

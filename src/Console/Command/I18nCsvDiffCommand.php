@@ -62,6 +62,7 @@ class I18nCsvDiffCommand extends Command
             // display the record twice so the output can be copy&pasted into a translation CSV file
             fputcsv(STDOUT, [$r, $r]);
         }
+        return 0;
     }
 
     private function readFirstCol(string $file): array

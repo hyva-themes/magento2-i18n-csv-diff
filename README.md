@@ -11,7 +11,7 @@ This module adds the `bin/magento i18n:diff-csv` and `i18n:translate-csv` comman
 ### i18n:diff-csv
 
 The command takes two CSV files as arguments.    
-It displays all translations that are present in the first CSV file but not in the second.
+It displays all translations that are present in the first CSV file but not in the second, based on the first colum in the files.
 
 ### i18n:translate
 

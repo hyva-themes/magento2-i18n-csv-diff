@@ -1,6 +1,6 @@
 # Hyvä Themes - Magento translation CSV comparison command 
 
-[![Hyvä Themes](https://repository-images.githubusercontent.com/300568807/f00eb480-55b1-11eb-93d2-074c3edd2d07)](https://hyva.io/)
+[![Hyvä Themes](https://gitlab.hyva.io/uploads/-/system/group/avatar/617/hyva-logo-360.png?width=160)](https://hyva.io/)
 
 ## hyva-themes/magento2-i18n-csv-diff
 

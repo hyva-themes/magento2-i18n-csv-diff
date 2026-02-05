@@ -60,8 +60,11 @@ Be sure to check the automatic translations afterwards!
   
 To use the Deep`i18n:translate-csv` command, configure your [API key](https://www.deepl.com/pro-api?cta=header-pro-api/) in the system configuration at *Hyva Themes > Localization CLI > Translation > DeepL API Key*. 
 
-## License
+### License
 
-The BSD-3-Clause License. Please see [License File](LICENSE.txt) for more information.
+This package is licensed under the **Open Software License (OSL 3.0)**.
+
+* **Copyright:** Copyright © 2020-present Hyvä Themes. All rights reserved.
+* **License Text (OSL 3.0):** The full text of the OSL 3.0 license can be found in the `LICENSE.txt` file within this package, and is also available online at [http://opensource.org/licenses/osl-3.0.php](http://opensource.org/licenses/osl-3.0.php).
 
 [ico-compatibility]: https://img.shields.io/badge/magento-%202.3%20|%202.4-brightgreen.svg?logo=magento&longCache=true&style=flat-square

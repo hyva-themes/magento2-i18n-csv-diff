@@ -5,9 +5,7 @@
         "php": ">=7.4.0"
     },
     "type": "magento2-module",
-    "license": [
-        "BSD-3-Clause"
-    ],
+    "license": "OSL-3.0",
     "autoload": {
         "files": [
             "src/registration.php"

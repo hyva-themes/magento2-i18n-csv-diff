@@ -1,9 +1,8 @@
 <?php
 /**
  * Hyvä Themes - https://hyva.io
- * Copyright © Hyvä Themes 2021-present. All rights reserved.
- * This product is licensed under the terms of the BSD-3-Clause license.
- * See the LICENSE.txt file for more information.
+ * Copyright © Hyvä Themes. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
 declare(strict_types=1);

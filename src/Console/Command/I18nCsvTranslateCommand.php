@@ -55,12 +55,21 @@ class I18nCsvTranslateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $inFileHandle  = $input->getOption('in') === 'stdin'
+        $in = $input->getOption('in');
+        if ($in !== 'stdin' && !file_exists($in)) {
+            $output->writeln('Input file does not exist: ' . $in . '');
+            return Command::FAILURE;
+        }
+
+        $out = $input->getOption('out');
+
+        $inFileHandle  = $in === 'stdin'
             ? STDIN
-            : fopen($input->getOption('in'), 'r');
-        $outFileHandle = $input->getOption('out') === 'stdout'
+            : fopen($in, 'r');
+
+        $outFileHandle = $out === 'stdout'
             ? STDOUT
-            : fopen($input->getOption('out'), 'r');
+            : fopen($out, 'w');
 
         $lang = strtoupper($input->getArgument('target-lang'));
 

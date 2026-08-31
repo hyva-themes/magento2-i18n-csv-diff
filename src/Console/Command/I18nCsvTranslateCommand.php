@@ -82,15 +82,21 @@ class I18nCsvTranslateCommand extends Command
         $key = $this->scopeConfig->getValue('hyva_themes_i18n/translation/deepl_api_key');
 
         $client = $this->httpClientFactory->create();
+        
+        $client->setHeaders([
+            'Authorization' => 'DeepL-Auth-Key ' . $key
+        ]);
+
         $client->post('https://api-free.deepl.com/v2/translate', [
             'tag_handling'    => 'xml',
             'split_sentences' => 'nonewlines',
             'source_lang'     => 'EN',
-            'auth_key'        => $key,
             'text'            => $phrase,
             'target_lang'     => $lang,
         ]);
+        
         $result = json_decode($client->getBody(), true);
+        
         return $result['translations'][0]['text'] ?? $phrase;
     }
 

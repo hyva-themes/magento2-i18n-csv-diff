@@ -61,6 +61,12 @@ class I18nCsvTranslateCommand extends Command
             return Command::FAILURE;
         }
 
+        $key = $this->scopeConfig->getValue('hyva_themes_i18n/translation/deepl_api_key');
+        if (!$key) {
+            $output->writeln('<error>Configure a DeepL API key at hyva_themes_i18n/translation/deepl_api_key.</error>');
+            return Command::FAILURE;
+        }
+
         $out = $input->getOption('out');
 
         $inFileHandle  = $in === 'stdin'
@@ -80,16 +86,14 @@ class I18nCsvTranslateCommand extends Command
             if (!$row || $row[0] === null) {
                 continue;
             }
-            fputcsv($outFileHandle, [$row[0], $this->translate($lang, $row[0])]);
+            fputcsv($outFileHandle, [$row[0], $this->translate($lang, $row[0], $key)]);
         }
 
         return 0;
     }
 
-    private function translate(string $lang, string $phrase): string
+    private function translate(string $lang, string $phrase, string $key): string
     {
-        $key = $this->scopeConfig->getValue('hyva_themes_i18n/translation/deepl_api_key');
-
         $client = $this->httpClientFactory->create();
         
         $client->setHeaders([
